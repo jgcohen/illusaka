@@ -1,0 +1,76 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Galerie - A-KA
+{% endblock %}
+
+{% block body %}
+	<style>
+		 @media only screen and (max-width: 600px) {
+  .img-galerie {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+  }
+}
+  @media only screen and (min-width: 600px) {
+  .img-galerie {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+  }
+}
+  @media only screen and (min-width:  992px) {
+  .img-galerie {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+  }
+}
+
+  @media only screen and (min-width:  1200px) {
+  .img-galerie {
+    width: 350px;
+    height: 350px;
+    object-fit: cover;
+  }
+
+ 
+}
+	</style>
+
+<div class="container-fluid bg-light">
+  <div class="container">
+	<div class="row m-2">
+
+    <div class="col-2"></div>
+    <div class="col-2">
+		<a class="badge text-dark" href="/girls">Girls</a>
+    	</div>
+      <div class="col-2">
+		<a class="badge text-dark" href="/tutos">Tutos</a>
+    	</div>
+      <div class="col-2">
+		<a class="badge text-dark" href="/strips">Strips</a>
+    	</div>
+    <div class="col-2">
+		<a class="badge text-dark" href="/midgard">Midgard</a>
+    	</div>
+      <div class="col-2"></div>
+
+
+	</div>
+	<div class="row">
+		{% for i,image in images %}
+			<div class="col-4">
+				<a href="{{path('illustration',{id:image.id})}}">  <img
+          src="{{ asset(image.url) }}"
+          class=" img-galerie mb-3"
+          alt="Images"
+        /></a> 
+			</div>
+		{% endfor %}
+    {{knp_pagination_render(images, '@KnpPaginator/Pagination/twitter_bootstrap_v4_pagination.html.twig')}}
+	</div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    {% block head %}
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="A-KA Site d'illustrations, cours de dessin, commande et plus encore">
+    <title>{% block title %}A-KA Illustrations {% endblock %}</title>
+    {# Run `composer require symfony/webpack-encore-bundle` and uncomment the
+    following Encore helpers to start using Symfony UX #} {% block stylesheets
+    %}
+    <link rel="stylesheet" href="/assets/style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
+      crossorigin="anonymous"
+    />
+    {% endblock %} {% block javascripts %}
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+      crossorigin="anonymous"
+    ></script>
+    {% endblock %} {% endblock %}
+  </head>
+
+  <body class="h-100 bg-light">
+    <header class="container-fluid bg-light">
+      <div class="text-center d-none d-md-block">
+        <img
+          src="/assets/banniere.jpg"
+          class="img-fluid w-50  "
+          alt="Banniere du site A-KA"
+        />
+      </div>
+
+      <div class="text-center d-md-none d-lg-none d-xl-none">
+      <img
+        src="/assets/banniere.jpg"
+        class="img-fluid   "
+        alt="Banniere du site A-KA"
+      />
+    </div>
+      <div class="text-center border-top border-secondary row">
+        <div class="border-end border-secondary col-3">
+          <a class="badge text-dark" href="/">A-KA</a>
+        </div>
+        <div class="border-end border-secondary col-3">
+          <a class="badge text-dark" href="/galerie">Galerie</a>
+        </div>
+        <div class="border-end border-secondary col-3">
+          <a class="badge text-dark" href="/about">A propos</a>
+        </div>
+        <div class="border-end border-secondary col-3">
+          <a class="badge text-dark" href="/contact">Contact</a>
+        </div>
+      </div>
+      <!-- <nav
+        class="
+          navbar navbar-expand-lg navbar-light
+          bg-light
+          border-top border-secondary
+        "
+      >
+        <div class="container-fluid">
+          <div class="collapse navbar-collapse"></div>
+          <a class="navbar-brand" href="/">A-KA</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link border-secondary" href="/galerie">Galerie</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/about">A Propos</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/contact">Contact</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav> -->
+    </header>
+    {% block body %}
+
+    <!-- Bootstrap bundle -->
+
+    {% endblock %}
+
+    <div class="row text-center m-4">
+      <div class="col">
+        <a href="https://www.twitch.tv/aartka"
+          ><img
+            style="width: 50px; height: 50px"
+            src="/assets/insta.png"
+            alt=""
+        /></a>
+      </div>
+      <div class="col">
+        <a href="https://www.twitch.tv/aartka"
+          ><img
+            style="width: 50px; height: 50px"
+            src="/assets/twitch.png"
+            alt=""
+        /></a>
+      </div>
+    </div>
+    <footer class="container.fluid bg-dark text-light fixed-bottom">
+      <div class="container text-center">
+        <p class="fs-6 fw-light text-muted m-0">
+          Website produced by Jonathan Cohen at
+          <a href="https://phanios.fr/">Phanios</a>
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,68 @@
+{% extends 'base.html.twig' %}
+{% block title %}Illustration - A-KA
+{%
+endblock %}
+{% block body %}
+	<style>
+		@media only screen and(max-width: 600px) {
+			.img-galerie {
+				width: 100px;
+				height: 100px;
+				object-fit: cover;
+			}
+		}
+		@media only screen and(min-width: 600px) {
+			.img-galerie {
+				width: 200px;
+				height: 200px;
+				object-fit: cover;
+			}
+		}
+		@media only screen and(min-width: 992px) {
+			.img-galerie {
+				width: 200px;
+				height: 200px;
+				object-fit: cover;
+			}
+		}
+
+		@media only screen and(min-width: 1200px) {
+			.img-galerie {
+				width: 350px;
+				height: 350px;
+				object-fit: cover;
+			}
+
+
+		}
+	</style>
+
+
+	<div class="container-fluid bg-light">
+		<div class="container">
+			<div class="row m-2">
+
+				<div class="col-2"></div>
+				<div class="col-2">
+					<a class="badge text-dark" href="/girls">Girls</a>
+				</div>
+				<div class="col-2">
+					<a class="badge text-dark" href="/tutos">Tutos</a>
+				</div>
+				<div class="col-2">
+					<a class="badge text-dark" href="/strips">Strips</a>
+				</div>
+				<div class="col-2">
+					<a class="badge text-dark" href="/midgard">Midgard</a>
+				</div>
+				<div class="col-2"></div>
+			</div>
+			<div class="row ">
+				<div class="text-center">
+					<img src="{{ asset(image.url) }}" class=" img-fluid" alt="Images"/>
+
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

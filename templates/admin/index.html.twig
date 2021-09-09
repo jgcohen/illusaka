@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Admin - A-KA{% endblock %}
+
+{% block body %}
+<div>
+{% if app.user %}
+{{form(form)}}
+{% endif %}
+</div>
+{% endblock %}

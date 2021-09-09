@@ -1,0 +1,83 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+	<style>
+	@media only screen and (max-width: 600px) {
+    .img-caroussel {
+      max-width: 90%;
+      height: auto;
+    }
+  }
+
+  @media only screen and (min-width: 600px) {
+    .img-caroussel {
+      max-width: 90%;
+      height: auto;
+    }
+  }
+
+  @media only screen and (min-width: 992px) {
+    .img-caroussel {
+      max-width: 90%;
+      height: auto;
+    }
+  }
+
+  @media only screen and (min-width: 1200px) {
+  }
+  .img-caroussel {
+    max-width: 60%;
+    height: auto;
+  }
+
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    height: 41px;
+    width: 41px;
+    outline: black;
+    background-size: 100%, 100%;
+    background-color: white;
+    border-radius: 50%;
+    border: 1px solid black;
+    background-image: none;
+  }
+
+  .carousel-control-next-icon:after {
+    content: ">";
+    font-size: 22px;
+    font-weight: bold;
+    color: black;
+  }
+
+  .carousel-control-prev-icon:after {
+    content: "<";
+    font-size: 22px;
+    font-weight: bold;
+    color: black;
+  }
+</style>
+	<div class="container-fluid bg-light pt-5">
+		<div class="container">
+			<div id="carouselExampleInterval" class="carousel slide mb-5" data-bs-ride="carousel">
+				<div class="carousel-inner text-center">
+					{% for i,image in images %}
+						<div class='carousel-item {{ i == 0 ? "active" }}'>
+							<img src="{{ asset(image.url) }}" class="img-fluid img-caroussel" alt="Images">
+						</div>
+					{% endfor %}
+
+				</div>
+				<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+					<span class="visually-hidden">Previous</span>
+				</button>
+				<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+					<span class="carousel-control-next-icon" aria-hidden="true"></span>
+					<span class="visually-hidden">Next</span>
+				</button>
+			</div>
+		</div>
+	</div>
+
+{% endblock %}
