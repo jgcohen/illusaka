@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use Symfony\Component\HttpFoundation\Response;
 use App\Classe\Search;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
@@ -16,7 +17,8 @@ class GalerieController extends AbstractController
 
     private $entityManager;
 
-    public function __construct (EntityManagerInterface $entityManager){
+    public function __construct(EntityManagerInterface $entityManager)
+    {
         $this->entityManager = $entityManager;
     }
 
@@ -24,12 +26,12 @@ class GalerieController extends AbstractController
      * @Route("/galerie", name="galerie")
      */
     public function index(Request $request, PaginatorInterface $paginator)
-    {   
-        $images =$this->entityManager->getRepository(Image::class)->findAll();
+    {
+        $images = $this->entityManager->getRepository(Image::class)->findAll();
 
         $images = $paginator->paginate(
             $images,
-            $request->query->getInt('page',1),
+            $request->query->getInt('page', 1),
             9
         );
 
@@ -38,27 +40,38 @@ class GalerieController extends AbstractController
 
         $form->handleRequest($request);
 
-        if($form->isSubmitted() && $form->isValid()){
+        if ($form->isSubmitted() && $form->isValid()) {
 
             $images = $this->entityManager->getRepository(Image::class)->findWithSearch($search);
-            
-           
         }
-        
-        return $this->render('galerie/index.html.twig',[
+
+        return $this->render('galerie/index.html.twig', [
             'images' => $images,
-            'form' =>$form->createView()
+            'form' => $form->createView()
         ]);
     }
 
     /**
      * @Route("/illustration/{id}", name="illustration")
      */
-    public function illustration( $id)
-    {   
+    public function illustration($id)
+    {
         $image = $this->entityManager->getRepository(Image::class)->find($id);
-        return $this->render('single/image.html.twig',[
+        return $this->render('single/image.html.twig', [
             'image' => $image,
         ]);
+    }
+
+    /**
+     * @Route("/delete/{id}", name="delete")
+     */
+    public function delete($id): Response
+    {
+        $image = $this->entityManager->getRepository(Image::class)->find($id);
+
+        $this->entityManager->remove($image);
+        $this->entityManager->flush();
+
+        return $this->render('home/index.html.twig', []);
     }
 }
