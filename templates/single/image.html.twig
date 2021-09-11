@@ -4,13 +4,13 @@
 endblock %}
 {% block body %}
 	<style>
-		@media only screen and(max-width: 600px) {
+		{# @media only screen and(max-width: 600px) {
 			.img-galerie {
 				width: 100px;
 				height: 100px;
 				object-fit: cover;
 			}
-		}
+		} #}
 		@media only screen and(min-width: 600px) {
 			.img-galerie {
 				width: 200px;
@@ -60,7 +60,7 @@ endblock %}
 			<div class="row ">
 				<div class="text-center">
 			
-					<img src="{{ asset(image.url) }}" class=" img-fluid" alt="Images"/>
+					<img src="{{ asset(image.url) }}" class="img-fluid" alt="Images"/>
 
 				</div>
 			</div>
